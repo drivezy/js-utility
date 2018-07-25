@@ -1,0 +1,4 @@
+module.exports = {
+    DEFAULT_API_DATE_FORMAT: 'YYYY-MM-DD HH:mm:ss',
+    DEFAULT_DATE_TIME_TILL_MIN_FORMAT: 'YYYY-MM-DD HH:mm'
+};

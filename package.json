@@ -13,10 +13,12 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "moment": "^2.22.2",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5",
-    "moment": "^2.22.2"
+    "webpack-dev-server": "^3.1.5"
   },
   "peerDependencies": {
     "moment": "^2.22.2"

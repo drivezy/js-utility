@@ -1,6 +1,6 @@
 {
   "name": "drivezy-js-utility",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Javascript utility functions",
   "main": "index.js",
   "scripts": {

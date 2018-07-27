@@ -5,7 +5,7 @@
 /**
  Default headers to be used for api calls
  */
-const defaultHeaders = {
+let defaultHeaders = {
     'Content-Type': 'application/json;charset=UTF-8',
     'Credentials': 'same-origin'
 };
@@ -33,8 +33,9 @@ implements get, post, put, delete calls
  * @param {String} baseUrl 
  * @param {Array} validationArray
  */
-export function Initialize(baseUrl, validationArray = [], fileUpload = 'api') {
+export function Initialize({ baseUrl, headers }, validationArray = [], fileUpload = 'api') {
     BASE_URL = baseUrl;
+    defaultHeaders = CreateHeader({ headers });
     fileUpload = fileUpload;
     /**
      validationArray = [
@@ -243,7 +244,6 @@ export async function GetNecessaryParams(obj) {
 
     /** Create Url */
     const url = CreateFinalUrl(obj);
-    console.log('Url',url)
     /** Create api call method type */
     const method = obj.method || GET;  /** If api method is not declared, default is GET */
 

@@ -33,7 +33,7 @@ implements get, post, put, delete calls
  * @param {String} baseUrl 
  * @param {Array} validationArray
  */
-export function Initialize({ baseUrl, headers }, validationArray = [], fileUpload = 'api') {
+export function InitializeHttp({ baseUrl, headers }, validationArray = [], fileUpload = 'api') {
     BASE_URL = baseUrl;
     defaultHeaders = CreateHeader({ headers });
     fileUpload = fileUpload;
@@ -235,7 +235,7 @@ export async function UploadImages(obj, images) {
  * @param  {object} obj
  */
 export async function GetNecessaryParams(obj) {
-    if (IsUndefinedOrNull(BASE_URL)) {
+    if (IsUndefinedOrNull(BASE_URL) && IsUndefinedOrNull(obj.urlPrefix)) {
         return {
             error: 'Invalid domain path',
             status: 0
@@ -312,7 +312,7 @@ export function HasRequiredParameters(obj) {
  * @param  {object} obj
  */
 export function CreateFinalUrl(obj) {
-    const url = BASE_URL + obj.url;
+    const url = (obj.urlPrefix || BASE_URL) + obj.url;
     return url;
 }
 
@@ -376,7 +376,7 @@ export async function ApiCall({ url, method, headers, body }) {
 /**
  Check if the property is undefined or null
  */
-export function IsUndefinedOrNull(property) {
+function IsUndefinedOrNull(property) {
     if (property == undefined || property == null) {
         return true
     }

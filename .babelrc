@@ -1,9 +1,16 @@
 {
     "presets": [
-        "env"
+        [
+            "env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ]
     ],
     "plugins": [
-        "transform-object-rest-spread"
+        "transform-object-rest-spread",
+        "transform-class-properties"
     ]
 }
-
